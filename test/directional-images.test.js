@@ -119,8 +119,8 @@ test("installs loaded textures once and requests only a mesh refresh", async () 
   await applyDirectionalImage(token, "right");
   assert.equal(token.texture, loaded);
   assert.equal(token.mesh.texture, loaded);
-  assert.equal(token.alpha, 1);
-  assert.equal(token.mesh.alpha, 1);
+  assert.equal(token.alpha, 0.5, "Token visibility alpha is preserved");
+  assert.equal(token.mesh.alpha, 0.5, "mesh visibility alpha is preserved");
   assert.deepEqual(token.refreshCalls, [{ refreshMesh: true }]);
 
   await applyDirectionalImage(token, "right");
